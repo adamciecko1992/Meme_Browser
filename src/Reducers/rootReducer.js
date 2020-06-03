@@ -1,7 +1,7 @@
 const initialState = {
   example: "example",
-  memeList: "regular",
-  hot: "hot",
+  memeList: [],
+  hot: [],
   num: 20,
   visibility: false,
 };
@@ -11,8 +11,8 @@ export const rootReducer = (state = initialState, action) => {
     return { ...state, num: state.num + action.value };
   }
   if (action.type === "UPDATE_LIST") {
-    return { ...state, memeList: action.value };
+    const memesArr = JSON.parse(action.value);
+    return { ...state, memeList: memesArr.memes };
   }
-
   return state;
 };

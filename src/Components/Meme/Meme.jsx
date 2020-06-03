@@ -1,17 +1,22 @@
 import React from "react";
 
-function Meme() {
+function Meme(props) {
   return (
     <>
-      <h3>{this.props.title}</h3>
-      <img src={this.props.img} alt="Meme img" />
-      <p>{this.props.content}</p>
-      <button className="btn btn-primary" onClick={this.props.upvote}>
-        Upvote
-      </button>
-      <button className="btn btn-danger" onClick={this.props.downvote}>
-        Downvote
-      </button>
+      <h3>{props.title}</h3>
+      <div className="card">
+        <div className="card-body">
+          <img src={props.img} alt="Meme img" />
+        </div>
+        <div className="card-footer">
+          <button className="btn btn-primary mr-3" onClick={props.upvote}>
+            Upvote <span className="badge border">{props.upvotes}</span>
+          </button>
+          <button className="btn btn-danger" onClick={props.downvote}>
+            Downvote <span className="badge border">{props.downvotes}</span>
+          </button>
+        </div>
+      </div>
     </>
   );
 }

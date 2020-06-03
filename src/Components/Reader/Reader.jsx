@@ -1,18 +1,21 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import axios from "axios";
+
 import Regular from "../Regular/Regular";
 import Hot from "../Hot/Hot";
 import "./Reader.scss";
 
 class Reader extends Component {
   componentDidMount() {
-    const memes = fetch("")
-      .then((res) => {
-        res.json();
-      })
+    axios
+      .get(
+        "https://api.github.com/repos/adamciecko1992/Meme_Browser/contents/src/data/memes.json"
+      )
       .then((data) => {
-        console.log("TCL: Reader -> componentDidMount -> ", data);
+        const memes = atob(data.data.content);
+        this.props.updateMemeList(memes);
       });
   }
   render() {
@@ -39,8 +42,8 @@ class Reader extends Component {
 
           <div className="Reader bg-secondary col-10">
             <Switch>
-              <Route path="/hot" component={Hot}></Route>
-              <Route path="/regular" component={Regular}></Route>
+              <Route path="/hot" render={(props) => <Hot />}></Route>
+              <Route path="/regular" render={(props) => <Regular />}></Route>
             </Switch>
           </div>
         </Router>
@@ -55,7 +58,7 @@ const mapStateToPorps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     updateMemeList: (memeList) => {
-      dispatch({ type: "UPDATE_lIST", value: memeList });
+      dispatch({ type: "UPDATE_LIST", value: memeList });
     },
   };
 };
