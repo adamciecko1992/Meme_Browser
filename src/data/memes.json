@@ -1,0 +1,39 @@
+{
+  "memes": [
+    {
+      "title": "Example",
+      "img": "/example",
+      "content": "example",
+      "upvotes": 5,
+      "downvotes": 6
+    },
+    {
+      "title": "Example",
+      "img": "/example",
+      "content": "example",
+      "upvotes": 5,
+      "downvotes": 6
+    },
+    {
+      "title": "Example",
+      "img": "/example",
+      "content": "example",
+      "upvotes": 5,
+      "downvotes": 6
+    },
+    {
+      "title": "Example",
+      "img": "/example",
+      "content": "example",
+      "upvotes": 5,
+      "downvotes": 6
+    },
+    {
+      "title": "Example",
+      "img": "/example",
+      "content": "example",
+      "upvotes": 5,
+      "downvotes": 6
+    }
+  ]
+}
