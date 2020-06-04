@@ -13,11 +13,23 @@ class Reader extends Component {
     this.memes = [];
     this.memesList = [];
   }
-  upvote = (clickedMemeTitle) => {
+  findClickedMeme = (clickedMemeId) => {
     const clickedMeme = this.memesList.memes.filter((meme) => {
-      console.log(meme.title);
-      return meme.title === clickedMemeTitle;
+      return meme.id === clickedMemeId;
     });
+    const index = this.memesList.memes.findIndex(
+      (meme) => meme.id === clickedMeme[0].id
+    );
+    return index;
+  };
+  upvote = (clickedMemeId) => {
+    const index = this.findClickedMeme(clickedMemeId);
+    this.props.upvote(index);
+  };
+  downvote = (clickedMemeId) => {
+    const index = this.findClickedMeme(clickedMemeId);
+    this.props.downvote(index);
+    console.log(this.props);
   };
   componentDidMount() {
     axios
@@ -26,19 +38,32 @@ class Reader extends Component {
       )
       .then((data) => {
         this.memesList = JSON.parse(atob(data.data.content));
-        this.props.updateMemeList(this.memesList);
+        this.props.updateMemeList(this.memesList.memes);
       });
   }
   render() {
     return (
       <div className="Reader bg-secondary col-10">
         <Switch>
-          <Route path="/hot" render={(props) => <Hot />}></Route>
+          <Route
+            path="/hot"
+            render={() => (
+              <Hot
+                upvote={this.upvote}
+                downvote={this.downvote}
+                hot={this.props.hot}
+              />
+            )}
+          ></Route>
           <Route
             exact
             path="/"
             render={() => (
-              <Regular regular={this.props.regular} upvote={this.upvote} />
+              <Regular
+                regular={this.props.regular}
+                upvote={this.upvote}
+                downvote={this.downvote}
+              />
             )}
           ></Route>
           <Route component={ErrorPage} />
@@ -55,6 +80,12 @@ const mapDispatchToProps = (dispatch) => {
   return {
     updateMemeList: (memeList) => {
       dispatch({ type: "UPDATE_LIST", value: memeList });
+    },
+    upvote: (clickedMemeIndex) => {
+      dispatch({ type: "UPVOTE", value: clickedMemeIndex });
+    },
+    downvote: (clickedMemeIndex) => {
+      dispatch({ type: "DOWNVOTE", value: clickedMemeIndex });
     },
   };
 };

@@ -1,14 +1,26 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React from "react";
+import Meme from "../Meme/Meme";
+import uuid from "uuid/dist/v4";
 
-class Hot extends Component {
-  render() {
-    return <div className="example">Hot</div>;
-  }
+function Hot(props) {
+  return (
+    <div className="Regular d-flex flex-column align-items-center">
+      {props.hot.map((meme) => {
+        return (
+          <Meme
+            key={uuid()}
+            downvotes={meme.downvotes}
+            upvotes={meme.upvotes}
+            upvote={props.upvote}
+            downvote={props.downvote}
+            img={meme.img}
+            title=""
+            id={meme.id}
+          />
+        );
+      })}
+    </div>
+  );
 }
 
-const mapStateToProprs = (state) => {
-  return { regularList: state.memeList };
-};
-
-export default connect(mapStateToProprs)(Hot);
+export default Hot;
