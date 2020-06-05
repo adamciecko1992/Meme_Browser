@@ -8,11 +8,6 @@ import Hot from "../Hot/Hot";
 import ErrorPage from "../ErrorPage/ErrorPage";
 
 class Reader extends Component {
-  constructor(props) {
-    super(props);
-    this.memes = [];
-    this.memesList = [];
-  }
   findClickedMeme = (clickedMemeId) => {
     const clickedMeme = this.memesList.memes.filter((meme) => {
       return meme.id === clickedMemeId;
@@ -25,11 +20,11 @@ class Reader extends Component {
   upvote = (clickedMemeId) => {
     const index = this.findClickedMeme(clickedMemeId);
     this.props.upvote(index);
+    console.log(this.props);
   };
   downvote = (clickedMemeId) => {
     const index = this.findClickedMeme(clickedMemeId);
     this.props.downvote(index);
-    console.log(this.props);
   };
   componentDidMount() {
     axios
@@ -51,7 +46,7 @@ class Reader extends Component {
               <Hot
                 upvote={this.upvote}
                 downvote={this.downvote}
-                hot={this.props.hot}
+                memes={this.props.memeList}
               />
             )}
           ></Route>
@@ -60,7 +55,7 @@ class Reader extends Component {
             path="/"
             render={() => (
               <Regular
-                regular={this.props.regular}
+                memes={this.props.memeList}
                 upvote={this.upvote}
                 downvote={this.downvote}
               />
@@ -74,15 +69,17 @@ class Reader extends Component {
 }
 
 const mapStateToPorps = (state) => {
-  return { regular: state.memeList, hot: state.hot };
+  return { memeList: state.memeList };
 };
 const mapDispatchToProps = (dispatch) => {
   return {
     updateMemeList: (memeList) => {
       dispatch({ type: "UPDATE_LIST", value: memeList });
+
     },
     upvote: (clickedMemeIndex) => {
       dispatch({ type: "UPVOTE", value: clickedMemeIndex });
+
     },
     downvote: (clickedMemeIndex) => {
       dispatch({ type: "DOWNVOTE", value: clickedMemeIndex });

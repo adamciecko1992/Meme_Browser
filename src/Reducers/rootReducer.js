@@ -1,33 +1,22 @@
 const initialState = {
-  example: "example",
-  memeList: [],
-  hot: [],
-  num: 20,
-  visibility: false,
+  memeList: []
 };
 
 export const rootReducer = (state = initialState, action) => {
   if (action.type === "UPDATE_LIST") {
-    const newHotList = [...action.value].filter(
-      (meme) => meme.upvotes - meme.downvotes > 5
-    );
-    return { ...state, memeList: action.value, hot: newHotList };
+
+    return { ...state, memeList: action.value };
   }
   if (action.type === "UPVOTE") {
     const newMemeList = [...state.memeList];
     newMemeList[action.value].upvotes += 1;
-    const newHotList = [...state.memeList].filter(
-      (meme) => meme.upvotes - meme.downvotes >= 5
-    );
-    return { ...state, memeList: newMemeList, hot: newHotList };
+
+    return { ...state, memeList: newMemeList };
   }
   if (action.type === "DOWNVOTE") {
     const newMemeList = [...state.memeList];
     newMemeList[action.value].downvotes += 1;
-    const newHotList = [...state.memeList].filter(
-      (meme) => meme.upvotes - meme.downvotes >= 5
-    );
-    return { ...state, memeList: newMemeList, hot: newHotList };
+    return { ...state, memeList: newMemeList };
   }
   return state;
 };

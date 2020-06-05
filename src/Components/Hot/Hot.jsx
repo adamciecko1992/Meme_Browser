@@ -5,7 +5,7 @@ import uuid from "uuid/dist/v4";
 function Hot(props) {
   return (
     <div className="Regular d-flex flex-column align-items-center">
-      {props.hot.map((meme) => {
+      {props.memes.filter((meme) => meme.upvotes - meme.downvotes > 5).map((meme) => {
         return (
           <Meme
             key={uuid()}
