@@ -15,13 +15,14 @@ function Nav() {
     
     <div className="Nav col-2 bg-white pt-3">
       <ul className="list-group-flush text-center">
-        <li onClick={clickHandler} className={`list_button list-group-item bg-primary ${active.hot}`}>
-          <NavLink className="text-white text-decoration-none" to={"/"}>
+        <li  className={`list_button list-group-item bg-primary ${active.hot}`}>
+          <NavLink onClick={clickHandler} className="text-white text-decoration-none" to={"/"}>
             Regular
           </NavLink>
         </li>
-        <li onClick={clickHandler} className={`list_button list-group-item px-0 bg-secondary ${active.regular}`}>
+        <li  className={`list_button list-group-item px-0 bg-secondary ${active.regular}`}>
           <NavLink
+            onClick={clickHandler}
             className="text-white text-decoration-none"
             exact
             to={"/hot"}
