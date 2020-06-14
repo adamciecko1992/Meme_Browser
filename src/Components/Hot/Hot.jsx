@@ -14,7 +14,7 @@ function Hot(props) {
             upvote={props.upvote}
             downvote={props.downvote}
             img={meme.img}
-            title=""
+            title={meme.title}
             id={meme.id}
           />
         );

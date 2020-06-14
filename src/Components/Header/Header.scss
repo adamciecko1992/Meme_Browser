@@ -1,8 +1,9 @@
 .Header {
-  height: 9rem;
-  &_brand {
-    background-image: url(../../img/logo.jpeg);
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
+    height: 9rem;
+    &_brand {
+        background-image: url(../../img/logo.jpeg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        margin-left: 20rem !important;
+    }
 }

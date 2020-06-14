@@ -3,7 +3,7 @@ import Header from "./Components/Header/Header";
 import Reader from "./Components/Reader/Reader";
 import Nav from "./Components/Nav/Nav";
 import "./App.scss";
-import { connect } from "react-redux";
+
 
 class App extends React.Component {
   render() {
@@ -18,16 +18,4 @@ class App extends React.Component {
     );
   }
 }
-
-const mapStateToProps = (state) => {
-  return { example: state.example, num: state.num, visible: state.visibility };
-};
-const mapDispatchToProps = (dispatch) => {
-  return {
-    examp: () => {
-      dispatch({ type: "INCREMENT", value: 1 });
-    },
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
