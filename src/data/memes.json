@@ -2,7 +2,7 @@
   "memes": [
     {
       "title": "Frodo",
-      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRKaELCVyX9sQjCmQrKj_ZcxPeqJm_pEMGWtj8x5hJFc7lGvB1d&usqp=CAU",
+      "img": "../img/Meme1.jpg",
       "content": "example",
       "upvotes": 7,
       "downvotes": 1,
