@@ -3,13 +3,13 @@ import "./Meme.scss";
 
 function Meme(props) {
   return (
-    <div className="Meme mt-2">
-        <div className="card justify-content-center">
+    <div className="Meme mt-5 m-auto ">
+      <div className="card justify-content-center mt-5">
         <div className="card-header text-center">{props.title}</div>
         <div className="card-image-top  text-center">
-          <img className='h-100' src={props.img} alt="Meme img" />
+          <img className="h-100" src={props.img} alt="Meme img" />
         </div>
-        <div className="card-body"></div>
+        <div className="card-body p-3"></div>
         <div className="card-footer">
           <button
             className="btn btn-primary mr-3"

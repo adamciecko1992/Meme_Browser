@@ -38,7 +38,7 @@ class Reader extends Component {
   }
   render() {
     return (
-      <div className="Reader bg-secondary col-10">
+      <div className="Reader bg-secondary col-lg-10 col-sm-9 col-xs-7">
         <Switch>
           <Route
             path="/hot"
@@ -75,11 +75,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     updateMemeList: (memeList) => {
       dispatch({ type: "UPDATE_LIST", value: memeList });
-
     },
     upvote: (clickedMemeIndex) => {
       dispatch({ type: "UPVOTE", value: clickedMemeIndex });
-
     },
     downvote: (clickedMemeIndex) => {
       dispatch({ type: "DOWNVOTE", value: clickedMemeIndex });

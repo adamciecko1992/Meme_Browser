@@ -2,7 +2,7 @@
   "memes": [
     {
       "title": "Frodo",
-      "img": "../img/Meme1.jpg",
+      "img": "https://pbs.twimg.com/media/DtfLYF3XcAERkRB.jpg",
       "content": "example",
       "upvotes": 7,
       "downvotes": 1,
