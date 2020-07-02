@@ -1,7 +1,7 @@
 {
   "memes": [
     {
-      "title": "Frodo",
+      "title": "Framework",
       "img": "https://pbs.twimg.com/media/DtfLYF3XcAERkRB.jpg",
       "content": "example",
       "upvotes": 7,
@@ -9,32 +9,32 @@
       "id": "first"
     },
     {
-      "title": "Example",
-      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRKaELCVyX9sQjCmQrKj_ZcxPeqJm_pEMGWtj8x5hJFc7lGvB1d&usqp=CAU",
+      "title": "Backend",
+      "img": "https://i.pinimg.com/originals/b4/00/bb/b400bba24a3ac713c5611facf4376d7e.jpg",
       "content": "example",
       "upvotes": 5,
       "downvotes": 6,
       "id": "second"
     },
     {
-      "title": "Example",
-      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRKaELCVyX9sQjCmQrKj_ZcxPeqJm_pEMGWtj8x5hJFc7lGvB1d&usqp=CAU",
+      "title": "The office",
+      "img": "https://i1.wp.com/www.divjot.co/wp-content/uploads/2018/11/1.jpg?resize=600%2C413",
       "content": "example",
       "upvotes": 5,
       "downvotes": 6,
       "id": "third"
     },
     {
-      "title": "Example",
-      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRKaELCVyX9sQjCmQrKj_ZcxPeqJm_pEMGWtj8x5hJFc7lGvB1d&usqp=CAU",
+      "title": "IE6",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSMoip-UsqU2kynAUWpgA7_Eta3sU63yzeNMA&usqp=CAU",
       "content": "example",
       "upvotes": 5,
       "downvotes": 6,
       "id": "fourth"
     },
     {
-      "title": "Example",
-      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRKaELCVyX9sQjCmQrKj_ZcxPeqJm_pEMGWtj8x5hJFc7lGvB1d&usqp=CAU",
+      "title": "Kitty",
+      "img": "https://www.memesmonkey.com/images/memesmonkey/fa/fa5fd8213b0b6b03494253efb6fc75c1.jpeg",
       "content": "example",
       "upvotes": 5,
       "downvotes": 6,
