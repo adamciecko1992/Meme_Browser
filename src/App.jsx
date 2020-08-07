@@ -4,15 +4,15 @@ import Reader from "./Components/Reader/Reader";
 import Nav from "./Components/Nav/Nav";
 import "./App.scss";
 
-
 class App extends React.Component {
   render() {
     return (
-      <div className="App container-fluid pt-2 px-4">
-        <Header />
-        <div className="row">
-          <Nav />
-          <Reader />
+      <div className="App container-fluid">
+        <Header /> <Nav />
+        <div className="container">
+          <div className="row d-flex">
+            <Reader />
+          </div>
         </div>
       </div>
     );

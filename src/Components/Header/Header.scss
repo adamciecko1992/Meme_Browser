@@ -1,8 +1,17 @@
 .Header {
-  height: 9rem;
-  &_brand {
-    background-image: url(../../img/logo.jpeg);
-    background-size: contain;
-    background-repeat: no-repeat;
+  height: 10rem;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+  .logo {
+    object-fit: cover;
+    height: 90%;
+  }
+}
+
+@media (max-width: 400px) {
+  .logo {
+    width: 100%;
   }
 }

@@ -17,24 +17,22 @@ function Nav() {
         <NavLink
           onClick={clickHandler}
           className="text-white text-decoration-none"
-          to={"/"}
+          exact
+          to={"/hot"}
         >
           <li
-            className={`list_button list-group-item bg-primary ${active.hot}`}
+            className={`list_button list-group-item px-0 bg-danger ${active.regular}`}
           >
-            Regular
+            Hot
           </li>
         </NavLink>
         <NavLink
           onClick={clickHandler}
           className="text-white text-decoration-none"
-          exact
-          to={"/hot"}
+          to={"/"}
         >
-          <li
-            className={`list_button list-group-item px-0 bg-secondary ${active.regular}`}
-          >
-            Hot
+          <li className={`list-group-item bg-primary ${active.hot}`}>
+            Regular
           </li>
         </NavLink>
       </ul>

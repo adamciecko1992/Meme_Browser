@@ -27,15 +27,23 @@ class Reader extends Component {
     this.props.downvote(index);
   };
   componentDidMount() {
-    axios
-      .get(
-        "https://api.github.com/repos/adamciecko1992/Meme_Browser/contents/src/data/memes.json"
-      )
-      .then((data) => {
-        this.memesList = JSON.parse(atob(data.data.content));
-        this.props.updateMemeList(this.memesList.memes);
-      });
+    // axios
+    //   .get(
+    //     "https://api.github.com/repos/adamciecko1992/Meme_Browser/contents/src/data/memes.json"
+    //   )
+    //   .then((data) => {
+    //     this.memesList = JSON.parse(atob(data.data.content));
+    //     this.props.updateMemeList(this.memesList.memes);
+    //   });
+
+    axios.get("https://api.imgflip.com/get_memes").then((data) => {
+      setTimeout(() => {
+        this.props.updateMemeList(data.data.memes);
+        console.log(this.props.memeList);
+      }, 6000);
+    });
   }
+
   render() {
     return (
       <div className="Reader bg-secondary col-lg-10 col-sm-9 col-xs-7">
