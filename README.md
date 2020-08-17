@@ -1,5 +1,15 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# This project is made for the purpose of my studies.
+
+It is a simple React app made with create-react-app to allow users browsing through a list of popular memes.
+
+It’s worth noting that memes are not filled up with content, they are just a model of popular memes.
+
+The state of the meme reader is handled by redux. The state of the navigation component is handled by the useState hook.
+
+I used bootstrap to apply basic styling for application and wrote some scss for custom styles.
+
 ## Available Scripts
 
 In the project directory, you can run:
