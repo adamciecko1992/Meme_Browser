@@ -4,7 +4,7 @@ import "./Meme.scss";
 function Meme(props) {
   return (
     <div className="Meme mt-5 m-auto ">
-      <div className="card justify-content-center mt-5">
+      <div className="card justify-content-center mt-5 shadow-lg ">
         <div className="card-header text-center">{props.title}</div>
         <div className="card-image-top  text-center">
           <img className="h-100" src={props.img} alt="Meme img" />

@@ -3,6 +3,7 @@ import Header from "./Components/Header/Header";
 import Reader from "./Components/Reader/Reader";
 import Nav from "./Components/Nav/Nav";
 import { Explanation } from "./Components/Explanation/Explanation";
+
 import "./App.scss";
 
 class App extends React.Component {

@@ -34,8 +34,10 @@ export const Explanation = () => {
 
   return (
     <>
-      <section className={`${classes.explanation} ${expClass}`}>
-        <h4>This is a simple project made for the end of my studies.</h4>
+      <section className={`${classes.explanation} ${expClass} pt-5`}>
+        <h4 className="mt-4">
+          This is a simple project made for the end of my studies.
+        </h4>
         <hr />
         <p>It uses</p>
         <ul className="list-group">

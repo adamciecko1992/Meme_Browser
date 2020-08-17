@@ -2,7 +2,7 @@ const initialState = {
   memeList: [],
 };
 
-export const rootReducer = (state = initialState, action) => {
+const rootReducer = (state = initialState, action) => {
   if (action.type === "UPDATE_LIST") {
     return { ...state, memeList: action.value };
   }
@@ -18,3 +18,5 @@ export const rootReducer = (state = initialState, action) => {
   }
   return state;
 };
+
+export default rootReducer;

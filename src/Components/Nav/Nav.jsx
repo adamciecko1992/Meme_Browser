@@ -1,27 +1,34 @@
 import React, { useState } from "react";
-import "./Nav.scss";
+import classes from "./Nav.module.scss";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 function Nav() {
-  const [active, changeActive] = useState({ hot: "", regular: "active" });
-  const [visible, setVisible] = useState(false);
+  const [active, changeActive] = useState({ hot: "", regular: classes.active });
+  const [visible, setVisible] = useState(true);
 
   const clickHandler = (e) => {
     if (e.target.innerText === "Regular") {
-      changeActive({ hot: "", regular: "active" });
+      changeActive({ hot: "", regular: classes.active });
     } else if (e.target.innerText === "Hot") {
-      changeActive({ hot: "active", regular: "" });
+      changeActive({ hot: classes.active, regular: "" });
     }
   };
+
   return (
     <>
+      <button
+        className={classes.Nav__toggle}
+        onClick={() => setVisible(!visible)}
+      >
+        <FontAwesomeIcon icon={faBars} />
+      </button>
       <nav
-        className="Nav col-lg-2 col-sm-3 bg-white pt-4"
+        className={`${classes.Nav} col-lg-2 col-sm-3 bg-white pt-4`}
         style={{ display: visible ? "block" : "none" }}
       >
-        <ul className="list-group-flush text-center">
+        <ul className="list-group-flush text-center mt-4 pt-4">
           <NavLink
             onClick={clickHandler}
             className="text-white text-decoration-none"
