@@ -1,13 +1,14 @@
-import { createStore, applyMiddleware } from "redux";
-import rootReducer from "./Reducers/rootReducer";
-import thunk from "redux-thunk";
+import { createStore, combineReducers } from "redux";
+import memeReducer from "./Reducers/rootReducer";
+import widthReducer from "./Reducers/widthReducer";
+
+const reducers = combineReducers({
+  memes: memeReducer,
+  clientWidth: widthReducer,
+});
 
 const initialState = {};
-const middleware = [thunk];
-const store = createStore(
-  rootReducer,
-  initialState,
-  applyMiddleware(...middleware)
-);
+
+const store = createStore(reducers, initialState);
 
 export default store;

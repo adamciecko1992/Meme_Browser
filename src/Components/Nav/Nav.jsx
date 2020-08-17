@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import "./Nav.scss";
 import { NavLink } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 function Nav() {
   const [active, changeActive] = useState({ hot: "", regular: "active" });
+  const [visible, setVisible] = useState(false);
+
   const clickHandler = (e) => {
     if (e.target.innerText === "Regular") {
       changeActive({ hot: "", regular: "active" });
@@ -12,31 +16,36 @@ function Nav() {
     }
   };
   return (
-    <div className="Nav col-lg-2 col-sm-3 bg-white pt-3">
-      <ul className="list-group-flush text-center">
-        <NavLink
-          onClick={clickHandler}
-          className="text-white text-decoration-none"
-          exact
-          to={"/hot"}
-        >
-          <li
-            className={`list_button list-group-item px-0 bg-danger ${active.regular}`}
+    <>
+      <nav
+        className="Nav col-lg-2 col-sm-3 bg-white pt-4"
+        style={{ display: visible ? "block" : "none" }}
+      >
+        <ul className="list-group-flush text-center">
+          <NavLink
+            onClick={clickHandler}
+            className="text-white text-decoration-none"
+            exact
+            to={"/hot"}
           >
-            Hot
-          </li>
-        </NavLink>
-        <NavLink
-          onClick={clickHandler}
-          className="text-white text-decoration-none"
-          to={"/"}
-        >
-          <li className={`list-group-item bg-primary ${active.hot}`}>
-            Regular
-          </li>
-        </NavLink>
-      </ul>
-    </div>
+            <li
+              className={`list_button list-group-item px-0 bg-danger ${active.regular}`}
+            >
+              Hot
+            </li>
+          </NavLink>
+          <NavLink
+            onClick={clickHandler}
+            className="text-white text-decoration-none"
+            to={"/"}
+          >
+            <li className={`list-group-item bg-primary ${active.hot}`}>
+              Regular
+            </li>
+          </NavLink>
+        </ul>
+      </nav>
+    </>
   );
 }
 

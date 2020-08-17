@@ -1,6 +1,5 @@
 import React from "react";
 import Meme from "../Meme/Meme";
-import uuid from "uuid/dist/v4";
 
 function Hot(props) {
   return (
@@ -10,13 +9,13 @@ function Hot(props) {
         .map((meme) => {
           return (
             <Meme
-              key={uuid()}
+              key={meme.id}
               downvotes={meme.downvotes}
               upvotes={meme.upvotes}
               upvote={props.upvote}
               downvote={props.downvote}
-              img={meme.img}
-              title={meme.title}
+              img={meme.url}
+              title={meme.name}
               id={meme.id}
             />
           );

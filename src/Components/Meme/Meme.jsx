@@ -13,7 +13,10 @@ function Meme(props) {
         <div className="card-footer">
           <button
             className="btn btn-primary mr-3"
-            onClick={() => props.upvote(props.id)}
+            onClick={() => {
+              console.log(props.id);
+              props.upvote(props.id);
+            }}
           >
             Upvote <span className="badge border">{props.upvotes}</span>
           </button>

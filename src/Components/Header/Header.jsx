@@ -7,10 +7,6 @@ function Header() {
       <div className="logo ml-5">
         <img src={logo} alt="logo" className="logo" />
       </div>
-      <div className="btn-group h-25 mr-5 Header__buttonholder">
-        <button className="btn btn-light">Log In</button>
-        <button className="btn btn-light">Sign In</button>
-      </div>
     </header>
   );
 }

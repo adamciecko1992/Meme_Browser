@@ -4,7 +4,6 @@ const initialState = {
 
 export const rootReducer = (state = initialState, action) => {
   if (action.type === "UPDATE_LIST") {
-    console.log(action.value);
     return { ...state, memeList: action.value };
   }
   if (action.type === "UPVOTE") {

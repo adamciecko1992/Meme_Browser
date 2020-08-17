@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Switch, Route } from "react-router-dom";
 import axios from "axios";
+import { downvote, updateMemeList, upvote } from "../../actions";
 import "./Reader.scss";
 import Regular from "../Regular/Regular";
 import Hot from "../Hot/Hot";
@@ -9,10 +10,10 @@ import ErrorPage from "../ErrorPage/ErrorPage";
 
 class Reader extends Component {
   findClickedMeme = (clickedMemeId) => {
-    const clickedMeme = this.memesList.memes.filter((meme) => {
+    const clickedMeme = this.memesList.filter((meme) => {
       return meme.id === clickedMemeId;
     });
-    const index = this.memesList.memes.findIndex(
+    const index = this.memesList.findIndex(
       (meme) => meme.id === clickedMeme[0].id
     );
     return index;
@@ -20,33 +21,32 @@ class Reader extends Component {
   upvote = (clickedMemeId) => {
     const index = this.findClickedMeme(clickedMemeId);
     this.props.upvote(index);
-    console.log(this.props);
   };
   downvote = (clickedMemeId) => {
     const index = this.findClickedMeme(clickedMemeId);
     this.props.downvote(index);
   };
   componentDidMount() {
-    // axios
-    //   .get(
-    //     "https://api.github.com/repos/adamciecko1992/Meme_Browser/contents/src/data/memes.json"
-    //   )
-    //   .then((data) => {
-    //     this.memesList = JSON.parse(atob(data.data.content));
-    //     this.props.updateMemeList(this.memesList.memes);
-    //   });
-
-    axios.get("https://api.imgflip.com/get_memes").then((data) => {
-      setTimeout(() => {
-        this.props.updateMemeList(data.data.memes);
-        console.log(this.props.memeList);
-      }, 6000);
-    });
+    axios.get("https://api.imgflip.com/get_memes").then(
+      ({
+        data: {
+          data: { memes },
+        },
+      }) => {
+        const memesWithVotes = memes.map((meme) => {
+          meme.upvotes = Math.floor(Math.random() * 20 + 1);
+          meme.downvotes = Math.floor(Math.random() * 20 + 1);
+          return meme;
+        });
+        this.memesList = memesWithVotes;
+        this.props.updateMemeList(memesWithVotes);
+      }
+    );
   }
 
   render() {
     return (
-      <div className="Reader bg-secondary col-lg-10 col-sm-9 col-xs-7">
+      <div className="Reader bg-secondary">
         <Switch>
           <Route
             path="/hot"
@@ -79,17 +79,9 @@ class Reader extends Component {
 const mapStateToPorps = (state) => {
   return { memeList: state.memeList };
 };
-const mapDispatchToProps = (dispatch) => {
-  return {
-    updateMemeList: (memeList) => {
-      dispatch({ type: "UPDATE_LIST", value: memeList });
-    },
-    upvote: (clickedMemeIndex) => {
-      dispatch({ type: "UPVOTE", value: clickedMemeIndex });
-    },
-    downvote: (clickedMemeIndex) => {
-      dispatch({ type: "DOWNVOTE", value: clickedMemeIndex });
-    },
-  };
+const mapDispatchToProps = {
+  updateMemeList,
+  upvote,
+  downvote,
 };
 export default connect(mapStateToPorps, mapDispatchToProps)(Reader);
